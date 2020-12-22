@@ -6,10 +6,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
-<link rel="stylesheet" href="css/SampleStyle.css">
 </head>
 <body>
-<h2>EmpList</h2>
+<h2>사원목록</h2>
+<form id="frm">
 <table>
     <colgroup>
         <col width="10%"/>
@@ -46,5 +46,25 @@
           
     </tbody>
 </table>
+</form>
+<a href="#this" id="Empinfo" class="btn">신규사원등록</a>
+<%@ include file="/WEB-INF/include/include-body.jspf" %>  
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#Empinfo").on("click",function(e){
+            e.preventDefault();
+            fn_openEmpinfo();
+        })
+    });
+     
+    function fn_openEmpinfo(){
+        var comSubmit = new ComSubmit();
+        comSubmit.setUrl("<c:url value='/sample/openEmpInfo.do'/>");
+        comSubmit.submit();
+    }
+
+</script>
 </body>
 </html>

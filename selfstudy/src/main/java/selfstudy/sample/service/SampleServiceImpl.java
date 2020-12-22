@@ -25,4 +25,11 @@ public class SampleServiceImpl implements SampleService{
 		return sampleDAO.selectEmpList(map);
 	}
 
+
+	@Override
+	public void writeBoard(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		sampleDAO.writeEmpInfo(map);
+	}
+
 }

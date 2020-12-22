@@ -48,4 +48,22 @@ public class SampleController {
         }
         return mv;
     }
+    
+    
+    @RequestMapping(value="/sample/openEmpInfo.do")
+    public ModelAndView openBoardWrite(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/EmpInfo");
+         
+        return mv;          
+    }
+     
+    @RequestMapping(value="/sample/writeEmpInfo.do")
+    public ModelAndView writeBoard(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("redirect:/sample/openSampleEmpList.do");
+        sampleService.writeBoard(commandMap.getMap());
+                 
+        return mv;
+    }
+    
+    
 }

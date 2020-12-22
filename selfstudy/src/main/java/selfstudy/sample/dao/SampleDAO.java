@@ -14,4 +14,10 @@ public class SampleDAO extends AbstractDAO{
 		// TODO Auto-generated method stub
 		return (List<Map<String, Object>>)selectList("sample.selectEmpList", map);
 	}
+
+	public void writeEmpInfo(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		//return null;
+		insert("sample.writeEmpInfo",map);
+	}	
 }

@@ -9,4 +9,33 @@
 			 ORDER BY EMP_NAME
 		]]>
 	</select>
+	
+	<insert id = "writeEmpInfo" parameterType ="hashmap">
+		<![CDATA[
+			INSERT INTO HRIS01TT
+			(
+				CORP_CODE
+				, SITE_CODE
+				, EMP_CODE
+				, EMP_NAME
+				, JUMIN_NO
+			
+				, HP_NO
+				, INPT_DATE
+				, INPT_USERID
+			)
+			VALUES
+			(
+				'1'
+				, '1'
+				, #{EMP_CODE}
+				, #{EMP_NAME}
+				, #{JUMIN_NO}
+				
+				, #{HP_NO}
+				, GETDATE()
+				, 'admin'
+			)
+		]]>
+	</insert>
 </mapper>
