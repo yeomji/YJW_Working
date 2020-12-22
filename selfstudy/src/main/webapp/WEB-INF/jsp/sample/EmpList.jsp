@@ -5,15 +5,17 @@
 <title>EmpList</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="/WEB-INF/include/include-header.jspf" %>
+<link rel="stylesheet" href="css/SampleStyle.css">
 </head>
 <body>
 <h2>EmpList</h2>
-<table style="border:1px solid #ccc">
+<table>
     <colgroup>
         <col width="10%"/>
-        <col width="*"/>
+        <col width="10%"/>
         <col width="15%"/>
-        <col width="20%"/>
+        <col width="*"/>
     </colgroup>
     <thead>
         <tr>
