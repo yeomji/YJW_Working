@@ -8,5 +8,7 @@ public interface SampleService {
 	List<Map<String, Object>> selectEmpList(Map<String, Object> map) throws Exception;
 
 	void writeBoard(Map<String,Object> map) throws Exception;
+
+	Map<String, Object> selectEmpDetail(Map<String, Object> map) throws Exception;
 }
 

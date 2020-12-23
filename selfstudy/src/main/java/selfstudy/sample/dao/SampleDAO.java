@@ -9,6 +9,7 @@ import selfstudy.common.dao.AbstractDAO;
 
 @Repository("sampleDAO")
 public class SampleDAO extends AbstractDAO{
+	
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> selectEmpList(Map<String, Object> map) throws Exception{
 		// TODO Auto-generated method stub
@@ -19,5 +20,11 @@ public class SampleDAO extends AbstractDAO{
 		// TODO Auto-generated method stub
 		//return null;
 		insert("sample.writeEmpInfo",map);
+	}
+
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectEmpDetail(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return (Map<String, Object>)selectOne("sample.selectEmpInfo", map);
 	}	
 }

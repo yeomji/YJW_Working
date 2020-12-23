@@ -65,5 +65,13 @@ public class SampleController {
         return mv;
     }
     
+    @RequestMapping(value="/sample/openEmpInfoDetail.do")
+    public ModelAndView openEmpInfoDetail(CommandMap commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/EmpInfo");
+        Map<String,Object> map = sampleService.selectEmpDetail(commandMap.getMap());
+        mv.addObject("EMP", map);
+        return mv;
+    }
+    
     
 }

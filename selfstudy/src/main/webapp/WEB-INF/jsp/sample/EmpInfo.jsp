@@ -7,7 +7,7 @@
 <%@ include file="/WEB-INF/include/include-header.jspf" %>
 </head>
 <body>
-    <form id="frm">
+    <form id="EMP_Info">
         <table class="board_view">
             <colgroup>
                 <col width="25%" >
@@ -19,15 +19,22 @@
             <tbody>
                 <tr>
                     <th scope="row">사번</th>
-                    <td><input type="text"  name="EMP_CODE"/></td>
+                    <td><input type="text"  name="EMP_CODE" value="${EMP.EMP_CODE}" ></td>
                     <th scope="row">성명</th>
-                    <td><input type="text"  name="EMP_NAME"/></td>
+                    <td><input type="text"  name="EMP_NAME" value="${EMP.EMP_NAME}"/></td>
                 </tr>
                 <tr>
                     <th scope="row">주민번호</th>
-                    <td><input type="text" name="JUMIN_NO"/></td>
+                    <td><input type="text" name="JUMIN_NO" value="${EMP.JUMIN_NO}"/></td>
                     <th scope="row">핸드폰</th>
-                    <td><input type="text" name="HP_NO" /></td>
+                    <td><input type="text" name="HP_NO" value="${EMP.HP_NO}"/></td>
+                </tr>
+                <tr>
+                	<th scope="row" colspan="4">주소</th>
+                    
+                </tr>
+                <tr>
+                	<td scope="row" colspan="4"><textarea name="JUMIN_ADDR1" rows="10" cols="128">${EMP.JUMIN_ADDR1}</textarea></td>
                 </tr>
             </tbody>
         </table>
@@ -35,6 +42,7 @@
         <a href="#this" id="write" class="btn">저장</a>
         <a href="#this" id="list" class="btn">취소</a>
     </form>
+    
     <%@ include file="/WEB-INF/include/include-body.jspf" %>  
      
     <script type="text/javascript">
@@ -42,22 +50,23 @@
         $(document).ready(function(){
             $("#list").on("click",function(e){
                 e.preventDefault();
-                fn_openBoardList();
+                fn_openEmpList();
             })
+            
             $("#write").on("click",function(e){
                 e.preventDefault();
-                fn_writeBoard();
+                fn_writeEmp();
             })
         });
          
-        function fn_openBoardList(){
+        function fn_openEmpList(){
             var comSubmit = new ComSubmit();
             comSubmit.setUrl("<c:url value='/sample/openSampleEmpList.do'/>");
             comSubmit.submit();
         }
          
-        function fn_writeBoard(){
-            var comSubmit = new ComSubmit("frm");
+        function fn_writeEmp(){
+            var comSubmit = new ComSubmit("EMP_Info");
             comSubmit.setUrl("<c:url value='/sample/writeEmpInfo.do'/>");
             comSubmit.submit();
         }

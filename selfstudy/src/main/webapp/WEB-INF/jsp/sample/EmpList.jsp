@@ -30,7 +30,7 @@
             <c:when test="${fn:length(list) > 0}">
                 <c:forEach items="${list}" var="row">
                     <tr>
-                        <td>${row.EMP_CODE}</td>
+                        <td><input type="hidden" id="EMP_CODE" value="${row.EMP_CODE}"/><a class="EMP_CODE" href="#this" name="EMP_CODE">${row.EMP_CODE}</a></td>
                         <td>${row.EMP_NAME}</td>
                         <td>${row.HP_NO}</td>
                         <td>${row.JUMIN_ADDR1}</td>
@@ -52,19 +52,33 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        $("#Empinfo").on("click",function(e){
+	$(document).ready(function(){
+		
+		$("a[name='EMP_CODE']").on("click",function(e){
             e.preventDefault();
-            fn_openEmpinfo();
+            fn_openEmpDetail($(this));
         })
-    });
-     
-    function fn_openEmpinfo(){
+        
+	    $("#Empinfo").on("click",function(e){
+	        e.preventDefault();
+	        fn_openEmpinfo();
+	    })
+        
+	});
+	 
+	function fn_openEmpinfo(){
+	    var comSubmit = new ComSubmit();
+	    comSubmit.setUrl("<c:url value='/sample/openEmpInfo.do'/>");
+	    comSubmit.submit();
+	}
+
+    function fn_openEmpDetail(val){
         var comSubmit = new ComSubmit();
-        comSubmit.setUrl("<c:url value='/sample/openEmpInfo.do'/>");
+        comSubmit.addParam("EMP_CODE", val.parent().find("#EMP_CODE").val());
+        comSubmit.setUrl("<c:url value='/sample/openEmpInfoDetail.do'/>");
         comSubmit.submit();
     }
-
+    
 </script>
 </body>
 </html>

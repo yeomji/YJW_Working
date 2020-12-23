@@ -32,4 +32,11 @@ public class SampleServiceImpl implements SampleService{
 		sampleDAO.writeEmpInfo(map);
 	}
 
+
+	@Override
+	public Map<String, Object> selectEmpDetail(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return sampleDAO.selectEmpDetail(map);
+	}
+
 }
